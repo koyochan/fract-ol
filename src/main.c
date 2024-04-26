@@ -6,13 +6,11 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 06:21:22 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/26 20:55:42 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/27 01:21:13 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
-#include <float.h>
-#include <limits.h>
 
 double	ft_atod(const char *str)
 {
@@ -53,16 +51,16 @@ double	ft_atod(const char *str)
 
 void	print_usage(void)
 {
-	printf("Usage: julia [options]\n");
-	printf("Options:\n");
-	printf("<type of set> 'j' or 'm''\n");
-	printf("<real> <imag>  Set the complex parameter 'c'\n");
+	write(1, "Usage: julia [options]\n", 24);
+	write(1, "Options:\n", 10);
+	write(1, "<type of set> 'j' or 'm''\n", 27);
+	write(1, "<real> <imag>  Set the complex parameter 'c'\n", 46);
 	return ;
 }
 
-Complex	init_c(char **av, int ac)
+t_complex	init_c(char **av, int ac)
 {
-	Complex	c;
+	t_complex	c;
 
 	if (ac < 3)
 	{
@@ -70,22 +68,18 @@ Complex	init_c(char **av, int ac)
 		c.image = 0.6;
 		return (c);
 	}
-	printf("c.real: %s\n", av[2]);
-	printf("c.image: %s\n", av[3]);
 	c.real = ft_atod(av[2]);
 	c.image = ft_atod(av[3]);
-	printf("c.real: %f\n", c.real);
-	printf("c.image: %f\n", c.image);
 	return (c);
 }
 
 int	main(int ac, char **av)
 {
-	Complex	z;
-	Complex	c;
+	t_complex	z;
+	t_complex	c;
 
-	z.image = Z_IMAGE;
-	z.real = Z_REAL;
+	z.image = 2;
+	z.real = 2;
 	if (ac > 5 || ac == 1 || (av[1][0] != 'j' && av[1][0] != 'm')
 		|| (av[1][0] == 'm' && ac != 2))
 	{
@@ -93,7 +87,6 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	c = init_c(av, ac);
-	/* test_julia(c); */
 	create_window(c, av[1][0]);
 	return (0);
 }

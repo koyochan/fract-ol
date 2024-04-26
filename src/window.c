@@ -6,19 +6,11 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 08:48:33 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/26 21:32:16 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/27 01:28:58 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
 
 int	close_window(int keycode, t_vars *vars)
 {
@@ -29,7 +21,7 @@ int	close_window(int keycode, t_vars *vars)
 
 void	redraw(t_vars *vars)
 {
-	Complex	c;
+	t_complex	c;
 
 	c.real = vars->c_real;
 	c.image = vars->c_image;
@@ -37,21 +29,15 @@ void	redraw(t_vars *vars)
 	vars->img.img = mlx_new_image(vars->mlx, 1080, 1080);
 	vars->img.addr = mlx_get_data_addr(vars->img.img, &vars->img.bits_per_pixel,
 			&vars->img.line_length, &vars->img.endian);
-	printf("redraw\n");
-	/* 	printf("%p\n", vars->img.img);
-		printf("c\\ %f %f", c.real, c.image); */
 	if (vars->type_of_fractol == 'j')
-		re_create_image_julia(vars);
+		create_image_julia(vars);
 	else if (vars->type_of_fractol == 'm')
-		re_create_image_mandelbrot(vars);
+		create_image_mandelbrot(vars);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_window, vars->img.img, 0, 0);
 }
 
 int	mouse_zoom(int button, int x, int y, t_vars *vars)
 {
-	printf("c: real: %f\n", vars->c_real);
-	printf("c: image: %f\n", vars->c_image);
-	printf("botton: %d\n", button);
 	if (button == 4)
 	{
 		vars->zoom *= 1.1;
@@ -62,12 +48,11 @@ int	mouse_zoom(int button, int x, int y, t_vars *vars)
 	}
 	else
 		return (0);
-	printf("zoom: %f\n", vars->zoom);
 	redraw(vars);
 	return (0);
 }
 
-void	init_vars(t_vars *vars, Complex c, char set)
+void	init_vars(t_vars *vars, t_complex c, char set)
 {
 	vars->type_of_fractol = set;
 	vars->zoom = 1;
@@ -82,7 +67,7 @@ void	init_vars(t_vars *vars, Complex c, char set)
 	return ;
 }
 
-int	create_window(Complex c, char set)
+int	create_window(t_complex c, char set)
 {
 	t_vars	vars;
 
@@ -93,9 +78,9 @@ int	create_window(Complex c, char set)
 	vars.img.addr = mlx_get_data_addr(vars.img.img, &vars.img.bits_per_pixel,
 			&vars.img.line_length, &vars.img.endian);
 	if (set == 'j')
-		re_create_image_julia(&vars);
+		create_image_julia(&vars);
 	else if (set == 'm')
-		re_create_image_mandelbrot(&vars);
+		create_image_mandelbrot(&vars);
 	mlx_mouse_hook(vars.mlx_window, mouse_zoom, &vars);
 	mlx_put_image_to_window(vars.mlx, vars.mlx_window, vars.img.img, 0, 0);
 	mlx_hook(vars.mlx_window, 2, 1L << 0, close_window, &vars);
