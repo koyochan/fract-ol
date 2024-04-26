@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = fract_ol
 
 # ソースファイル
-SRC = main.c julia.c complex.c window.c
+SRC = src/main.c src/julia.c src/complex.c src/window.c
 
 # プリント関数のライブラリ（またはオブジェクトファイル）のパス
 PRINTF = printf/ft_printf.a
