@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 01:20:17 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 01:29:50 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/27 03:18:21 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include "../mlx/mlx.h"
 # include <math.h>
+# include <stdio.h>
 # include <unistd.h>
 
 typedef struct s_complex
@@ -67,5 +68,8 @@ void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void		test_julia(t_complex c);
 void		create_image_julia(t_vars *vars);
 void		create_image_mandelbrot(t_vars *vars);
+int			parse_sign_part(const char **str);
+double		parse_integer_part(const char **str);
+double		parse_fraction_part(const char **str);
 
 #endif

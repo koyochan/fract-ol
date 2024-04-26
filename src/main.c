@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 06:21:22 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 01:21:13 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/27 03:19:34 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,14 @@
 
 double	ft_atod(const char *str)
 {
-	double		result;
-	double		fraction;
-	int			sign;
-	long long	divisor;
+	double	result;
+	int		sign;
+	double	fraction;
 
-	result = 0.0;
-	fraction = 0.0;
-	sign = 1;
-	divisor = 1;
-	while ((9 <= *str && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		sign = (*str == '-') ? -1 : 1;
-		str++;
-	}
-	while ('0' <= *str && *str <= '9')
-	{
-		result = result * 10.0 + (*str - '0');
-		str++;
-	}
-	if (*str == '.')
-	{
-		str++;
-		while ('0' <= *str && *str <= '9')
-		{
-			fraction = fraction * 10.0 + (*str - '0');
-			divisor *= 10;
-			str++;
-		}
-	}
-	result += fraction / divisor;
-	return (result * sign);
+	sign = parse_sign_part(&str);
+	result = parse_integer_part(&str);
+	fraction = parse_fraction_part(&str);
+	return (sign * (result + fraction));
 }
 
 void	print_usage(void)
@@ -70,6 +45,8 @@ t_complex	init_c(char **av, int ac)
 	}
 	c.real = ft_atod(av[2]);
 	c.image = ft_atod(av[3]);
+	printf("c.real: %f\n", c.real);
+	printf("c.image: %f\n", c.image);
 	return (c);
 }
 
