@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:55:29 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/26 19:39:39 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/26 20:19:14 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ void	re_create_image_julia(t_vars *vars)
 	while (x < 1080)
 	{
 		y = 0;
-		z.real = startReal + x * realStep;
+		z.real = startReal + x * realStep * vars->zoom;
 		while (y < 1080)
 		{
-			z.image = startImag + y * imagStep;
+			z.image = startImag + y * imagStep * vars->zoom;
 			iter = julia_set(z, c);
 			colorize_image(&vars->img, x, y, iter);
 			y++;

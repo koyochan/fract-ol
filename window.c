@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 08:48:33 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/26 19:40:25 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/26 20:22:50 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	redraw(t_vars *vars)
 	printf("redraw\n");
 /* 	printf("%p\n", vars->img.img);
 	printf("c\\ %f %f", c.real, c.image); */
-	re_create_image_julia(vars); 
+	re_create_image_julia(vars);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_window, vars->img.img, 0, 0);
 }
 
@@ -50,7 +50,7 @@ int	mouse_zoom(int button, int x, int y, t_vars *vars)
 	printf("c: real: %f\n", vars->c_real);
 	printf("c: image: %f\n", vars->c_image);
 	printf("botton: %d\n", button);
-	if (button == 3)
+	if (button == 4)
 	{
 		vars->zoom *= 1.1;
 	}
@@ -60,6 +60,7 @@ int	mouse_zoom(int button, int x, int y, t_vars *vars)
 	}
 	else
 		return (0);
+	printf("zoom: %f\n", vars->zoom);
 	redraw(vars);
 	return (0);
 }
@@ -69,6 +70,7 @@ int	create_window(Complex c, char set)
 	t_vars	vars;
 
 	vars.type_of_fractol = set;
+	vars.zoom = 1;
 	vars.c_image = c.image;
 	vars.c_real = c.real;
 	vars.mlx = mlx_init();

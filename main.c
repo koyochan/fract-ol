@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 06:21:22 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/16 17:27:54 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/26 20:22:11 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	c = init_c(av, ac);
-	
 	/* test_julia(c); */
 	create_window(c, av[1][0]);
 	return (0);
