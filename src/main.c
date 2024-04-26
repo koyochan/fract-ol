@@ -6,11 +6,12 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 06:21:22 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 03:19:34 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/27 04:46:07 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
+#include <stdlib.h>
 
 double	ft_atod(const char *str)
 {
@@ -45,8 +46,6 @@ t_complex	init_c(char **av, int ac)
 	}
 	c.real = ft_atod(av[2]);
 	c.image = ft_atod(av[3]);
-	printf("c.real: %f\n", c.real);
-	printf("c.image: %f\n", c.image);
 	return (c);
 }
 

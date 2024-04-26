@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:55:29 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 01:29:18 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/27 04:41:54 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	create_image_mandelbrot(t_vars *vars)
 		}
 		x++;
 	}
+	return ;
 }
 
 void	create_image_julia(t_vars *vars)
@@ -101,4 +102,5 @@ void	create_image_julia(t_vars *vars)
 		}
 		x++;
 	}
+	return ;
 }

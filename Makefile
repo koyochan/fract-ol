@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 NAME = fract_ol
 
@@ -11,11 +11,11 @@ OBJ = $(SRC:.c=.o)
 all:$(NAME)
 
 %.o: %.c
-	$(CC)  -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -L/opt/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -Lmlx -lmlx -L/opt/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

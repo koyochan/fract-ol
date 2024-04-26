@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 08:48:33 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 01:28:58 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/27 04:43:56 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,15 @@ void	redraw(t_vars *vars)
 		create_image_julia(vars);
 	else if (vars->type_of_fractol == 'm')
 		create_image_mandelbrot(vars);
+	printf("adad\n");
 	mlx_put_image_to_window(vars->mlx, vars->mlx_window, vars->img.img, 0, 0);
+	return ;
 }
 
 int	mouse_zoom(int button, int x, int y, t_vars *vars)
 {
+	(void)x;
+	(void)y;
 	if (button == 4)
 	{
 		vars->zoom *= 1.1;
