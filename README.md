@@ -2,7 +2,9 @@ This is 42 Courses Project! called fracto-ol
 
 ##Fract-olとは##
 
-フラクタルとは複素数平面上で表される
+フラクタルとは複素数平面上で表される自己相似性という特殊な性質を持つ幾何学図形である
+
+![screenshot](/screen/%20self-similarity.jpeg?raw=true)
 
 ジュリア集合は上記の式を用いて
 
