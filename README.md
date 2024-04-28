@@ -23,6 +23,11 @@ Zoom in and out with the mousewheel. Only julia set you can change value of c. `
 `0.285 0.01`
 
 ## fractol 
+
+xn+1 = x
+2
+n + c
+
 # Mandelbrot
 ![screenshot](/screen/mandelbrot.png?raw=true)
 # julia
