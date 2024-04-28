@@ -24,9 +24,7 @@ Zoom in and out with the mousewheel. Only julia set you can change value of c. `
 
 ## fractol 
 
-xn+1 = x
-2
-n + c
+\( x_{n+1} = \frac{x_{n}^2}{c} \)
 
 # Mandelbrot
 ![screenshot](/screen/mandelbrot.png?raw=true)
