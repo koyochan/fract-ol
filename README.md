@@ -22,7 +22,7 @@ Zoom in and out with the mousewheel. Only julia set you can change value of c. `
 `-0.835 -0.2321`
 `0.285 0.01`
 
-## fractol 
+# fractol 
 
 z = z^2 + c
 
