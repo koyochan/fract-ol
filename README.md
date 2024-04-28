@@ -24,7 +24,7 @@ Zoom in and out with the mousewheel. Only julia set you can change value of c. `
 
 ## fractol 
 
-z_{n+1} = z_{n}^2 + c
+z = z^2 + c
 
 
 # Mandelbrot
