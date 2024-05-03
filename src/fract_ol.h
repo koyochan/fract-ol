@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 01:20:17 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/28 11:55:11 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:40:35 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void		create_image_mandelbrot(t_vars *vars);
 int			parse_sign_part(const char **str);
 double		parse_integer_part(const char **str);
 double		parse_fraction_part(const char **str);
+void		init_vars(t_vars *vars, t_complex c, char set);
 
 #endif

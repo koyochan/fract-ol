@@ -6,13 +6,13 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 06:21:22 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/05/03 10:23:14 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:39:08 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 double	ft_atod(const char *str)
 {
@@ -35,18 +35,12 @@ void	print_usage(void)
 	return ;
 }
 
-t_complex	init_c(char **av, int ac)
+void	parse_parametar(char **av)
 {
-	t_complex	c;
-	int i = 0;
+	int	i;
 
-	if (ac < 3)
-	{
-		c.real = -0.4;
-		c.image = 0.6;
-		return (c);
-	}
-	while(av[2][i])
+	i = 0;
+	while (av[2][i])
 	{
 		if (('0' <= av[2][i] && av[2][i] <= '9') || av[2][i] == '.')
 			i++;
@@ -57,7 +51,7 @@ t_complex	init_c(char **av, int ac)
 		}
 	}
 	i = 0;
-	while(av[3][i])
+	while (av[3][i])
 	{
 		if (('0' <= av[3][i] && av[3][i] <= '9') || av[3][i] == '.')
 			i++;
@@ -67,6 +61,19 @@ t_complex	init_c(char **av, int ac)
 			exit(1);
 		}
 	}
+}
+
+t_complex	init_c(char **av, int ac)
+{
+	t_complex	c;
+
+	if (ac < 3)
+	{
+		c.real = -0.4;
+		c.image = 0.6;
+		return (c);
+	}
+	parse_parametar(av);
 	c.real = ft_atod(av[2]);
 	c.image = ft_atod(av[3]);
 	return (c);

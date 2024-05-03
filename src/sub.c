@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 03:01:35 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 03:20:18 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:40:13 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,19 @@ double	parse_fraction_part(const char **str)
 		}
 	}
 	return (fraction / divisor);
+}
+
+void	init_vars(t_vars *vars, t_complex c, char set)
+{
+	vars->type_of_fractol = set;
+	vars->zoom = 1;
+	vars->c_image = c.image;
+	vars->c_real = c.real;
+	vars->size.startreal = -2.0;
+	vars->size.startimag = -2.0;
+	vars->size.endreal = 2.0;
+	vars->size.endimag = 2.0;
+	vars->size.imagstep = (vars->size.endimag - vars->size.startimag) / 1080;
+	vars->size.realstep = (vars->size.endreal - vars->size.startreal) / 1080;
+	return ;
 }
