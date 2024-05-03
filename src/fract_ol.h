@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 01:20:17 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 03:18:21 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/28 11:55:11 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include "../mlx/mlx.h"
 # include <math.h>
-# include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 typedef struct s_complex

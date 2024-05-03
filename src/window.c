@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 08:48:33 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/04/27 04:47:10 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:13:34 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,19 @@
 
 int	close_window(int keycode, t_vars *vars)
 {
-	if (keycode == 65307)
+	if (keycode == 65307 || keycode == 1870326816)
+	{
+		exit(0);
 		mlx_destroy_window(vars->mlx, vars->mlx_window);
+	}
+	return (0);
+}
+
+int	close_window_x(int keycode, t_vars *vars)
+{
+	(void)keycode;
+	exit(0);
+	mlx_destroy_window(vars->mlx, vars->mlx_window);
 	return (0);
 }
 
@@ -76,7 +87,11 @@ int	create_window(t_complex c, char set)
 
 	init_vars(&vars, c, set);
 	vars.mlx = mlx_init();
+	if (vars.mlx == NULL)
+		return (1);
 	vars.mlx_window = mlx_new_window(vars.mlx, 1080, 1080, "fract-ol");
+	if (vars.mlx_window == NULL)
+		return (1);
 	vars.img.img = mlx_new_image(vars.mlx, 1080, 1080);
 	vars.img.addr = mlx_get_data_addr(vars.img.img, &vars.img.bits_per_pixel,
 			&vars.img.line_length, &vars.img.endian);
@@ -87,6 +102,7 @@ int	create_window(t_complex c, char set)
 	mlx_mouse_hook(vars.mlx_window, mouse_zoom, &vars);
 	mlx_put_image_to_window(vars.mlx, vars.mlx_window, vars.img.img, 0, 0);
 	mlx_hook(vars.mlx_window, 2, 1L << 0, close_window, &vars);
+	mlx_hook(vars.mlx_window, 17, 0, close_window_x, &vars);
 	mlx_loop(vars.mlx);
 	return (0);
 }
