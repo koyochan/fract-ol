@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 01:20:17 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/05/03 10:40:35 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:01:29 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include "../mlx/mlx.h"
 # include <math.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

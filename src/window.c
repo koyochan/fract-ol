@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 08:48:33 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/05/03 10:40:44 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:01:18 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	redraw(t_vars *vars)
 
 int	mouse_zoom(int button, int x, int y, t_vars *vars)
 {
-	(void)x;
-	(void)y;
+	printf("x: %d\n", x);
+	printf("y: %d\n", y);
 	if (button == 4)
 	{
 		vars->zoom *= 1.1;
