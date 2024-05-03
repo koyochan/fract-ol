@@ -6,7 +6,7 @@
 /*   By: kotkobay <kotkobay@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 06:21:22 by kotkobay          #+#    #+#             */
-/*   Updated: 2024/05/03 14:39:33 by kotkobay         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:10:56 by kotkobay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,24 @@ void	print_usage(void)
 void	parse_parametar(char **av)
 {
 	int	i;
+	int	x;
 
+	x = 2;
 	i = 0;
-	while (av[2][i])
+	while (x < 4)
 	{
-		if (('0' <= av[2][i] && av[2][i] <= '9') || av[2][i] == '.'
-			|| av[2][i] == '-')
-			i++;
-		else
+		while (av[x][i])
 		{
-			print_usage();
-			exit(1);
+			if (('0' <= av[x][i] && av[x][i] <= '9') || av[x][i] == '.'
+				|| av[x][i] == '-')
+				i++;
+			else
+			{
+				print_usage();
+				exit(1);
+			}
 		}
-	}
-	i = 0;
-	while (av[3][i])
-	{
-		if (('0' <= av[3][i] && av[3][i] <= '9') || av[3][i] == '.'
-			|| av[2][i] == '-')
-			i++;
-		else
-		{
-			print_usage();
-			exit(1);
-		}
+		x++;
 	}
 }
 
